@@ -17,7 +17,6 @@ script:
   - yarn build
   # build docker images
   - docker build -t majo69/ci-image .
-
 addons:
   sonarcloud: true
 script:
