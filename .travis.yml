@@ -1,6 +1,20 @@
+sudo: required
 language: node_js
 node_js:
   - "stable"
+services:
+  - docker
+before_install:
+  # login to docker registries (dockerhub + heroku)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+install:
+  # install deps
+  - yarn install
+script:
+  - yarn test
+  - yarn build
+  # build docker images
+  - docker build -t majo69/node-ci-image .
 jdk:
   - oraclejdk8
 addons:
@@ -11,3 +25,12 @@ jobs:
   include:
     - stage: unit tests
       script: npm test
+    - stage: deploy
+    deploy: 
+        provider: script
+        script:
+        # push to dockerhub
+          docker push majo69/node-ci-image .;
+        branch: main
+notifications:
+  slack: naksinc:3gS2KmrT2PJDARWHqAmdK3IC
