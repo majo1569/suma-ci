@@ -1,0 +1,19 @@
+{
+  "name": "suma-ci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majo1569/suma-ci.git"
+  },
+  "author": "majo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majo1569/suma-ci/issues"
+  },
+  "homepage": "https://github.com/majo1569/suma-ci#readme"
+}
