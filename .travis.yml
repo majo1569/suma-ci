@@ -25,8 +25,8 @@ script:
 deploy: 
   provider: script
   script:
-     docker push majo69/ci-image;
-        branch: main
+    docker push majo69/ci-image;
+  branch: main
 
 
 
