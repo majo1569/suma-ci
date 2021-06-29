@@ -12,15 +12,15 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   #- echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 
-jdk:
-  - oraclejdk8
+#jdk:
+  #- oraclejdk8
 
-addon:
-  sonarcloud: true
+#addon:
+ # sonarcloud: true
 
 script:
   - npm test
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=majo1569 -Dsonar.projectKey=majo1569_suma-ci -Dsonar.sources='./app' -X
+  # sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=majo1569 -Dsonar.projectKey=majo1569_suma-ci -Dsonar.sources='./app' -X
   - docker build -t majo69/ci-image .
   - docker tag majo69/ci-image 
     #registry.heroku.com/$HEROKU_APP_NAME/web
