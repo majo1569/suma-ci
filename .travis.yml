@@ -10,13 +10,14 @@ before_install:
 install:
   # install deps
   - yarn install
+jdk:
+  - oraclejdk8
 script:
   - yarn test
   - yarn build
   # build docker images
-  - docker build -t majo69/node-ci-image .
-jdk:
-  - oraclejdk8
+  - docker build -t majo69/ci-image .
+
 addons:
   sonarcloud: true
 script:
@@ -24,7 +25,7 @@ script:
 deploy: 
   provider: script
   script:
-     docker push majo69/node-ci-image;
+     docker push majo69/ci-image;
         branch: main
 
 
