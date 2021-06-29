@@ -28,9 +28,6 @@ script:
 #notifications:
   #slack: trabajodeis:Giyiq8DAlvuWDB4aV3Lb1s3v
 
-after_success:
- - npm run coveralls
-
 
 deploy:
   provider: script
