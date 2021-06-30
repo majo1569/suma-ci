@@ -7,10 +7,10 @@ services:
   - docker
 
 before_install:
-  # install heroku CLI
- # - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+   # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  #- echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 
 jdk:
   - oraclejdk8
@@ -20,13 +20,9 @@ addon:
 
 script:
   - npm test
- 
-
   - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=majo1569 -Dsonar.projectKey=suma-ci -Dsonar.sources='./app' -X
   - docker build -t majo69/ci-image .
-  #docker tag majo69/ci-image 
-    #registry.heroku.com/$HEROKU_APP_NAME/web
-
+  - docker tag majo69/ci-image registry.heroku.com/$HEROKU_APP_NAME/web
 
 
 deploy:
@@ -34,7 +30,7 @@ deploy:
   script:
     # push to dockerhub
     docker push majo69/ci-image;
-    #docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     #heroku container:release web --app $HEROKU_APP_NAME  
   on:
     branch: main
