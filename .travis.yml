@@ -31,7 +31,7 @@ deploy:
     # push to dockerhub
     docker push majo69/ci-image;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    #heroku container:release web --app $HEROKU_APP_NAME  
+    heroku container:release web --app $HEROKU_APP_NAME  
   on:
     branch: main
  
