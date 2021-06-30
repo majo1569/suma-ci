@@ -27,8 +27,7 @@ script:
   #docker tag majo69/ci-image 
     #registry.heroku.com/$HEROKU_APP_NAME/web
 
-#notifications:
-  #slack: trabajodeis:Giyiq8DAlvuWDB4aV3Lb1s3
+
 
 deploy:
   provider: script
@@ -40,3 +39,5 @@ deploy:
   on:
     branch: main
  
+notifications:
+  slack: naksinc:3gS2KmrT2PJDARWHqAmdK3IC 
