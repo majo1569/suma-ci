@@ -16,7 +16,7 @@ const app = express()
 
 const port = process.env.PORT || 8000
 
-app.get('/', (req,res) => res.send('hola mundo esto es un entorno de integracion y entrega continua!!'))
+app.get('/', (req,res) => res.send('hola mundo esto es un entorno de integracion y entrega continua!'))
 
 async function main(){
    await app.listen(port);
