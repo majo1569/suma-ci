@@ -13,7 +13,7 @@ describe("Calculator - Test", function() {
     });
 
     it("Testing the divide operation by zero", function() {
-      const expectedError = new Error("Can't divide by zero");
+      const expectedError = new Error("No se puede dividir por cero");
       expect(calculator.divide(3,0).message).to.equal(expectedError.message);
     });
 
